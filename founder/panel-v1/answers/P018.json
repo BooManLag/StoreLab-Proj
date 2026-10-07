@@ -1,0 +1,13 @@
+{
+  "id": "P018",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I like the idea, and I already run small store trials, but I won't lock in close to a million pesos for 12 months on 10 stores with a new company that has no results yet, especially when I don't know if our old CCTV is even good enough for it.",
+  "objection": "Our cameras are old and low resolution, and the same IT guy handles CCTV and POS. If the shopper tracking is garbage, the simulation is garbage, and I'm stuck paying for a year.",
+  "would_change_my_mind": "A short paid pilot on 2-3 of our stores with no 12-month lock-in, where they first check our actual CCTV footage and then show the simulation predicted a real change we measured in the POS.",
+  "price_too_cheap": 1000,
+  "price_cheap": 3000,
+  "price_expensive": 6000,
+  "price_too_expensive": 10000
+}

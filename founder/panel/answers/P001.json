@@ -1,0 +1,13 @@
+{
+  "id": "P001",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "The 75,000 test is refundable so that part doesn't scare me, but the test only matters if I roll it out, and 3,000 a store every month across a 300-store chain is close to 11 million pesos a year. With no customer results yet I can't put that in front of finance against what one more merchandiser costs me.",
+  "objection": "The pilot is cheap, the chain-wide fee is not. A win in 2-3 stores from a brand-new company doesn't prove I'll get payback inside a year once I'm paying per store everywhere, and suppliers already fund my endcaps.",
+  "would_change_my_mind": "A per-store fee that only kicks in on stores where the change is rolled out, or pricing tied to the extra margin the test proves, so payback within the year is guaranteed on paper.",
+  "price_too_cheap": 15000,
+  "price_cheap": 40000,
+  "price_expensive": 75000,
+  "price_too_expensive": 120000
+}

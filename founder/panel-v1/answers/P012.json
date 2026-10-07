@@ -1,0 +1,13 @@
+{
+  "id": "P012",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "need",
+  "reason": "Most of my endcaps and displays are proposed and paid for by the brands, I mostly just approve placement, so I don't see why I'd pay close to a million pesos a year to simulate something suppliers already fund. After a slow quarter I'm cutting costs, not signing 12-month contracts with a company that has zero customer results.",
+  "objection": "Is filming customers and running analytics on them even allowed under the Data Privacy Act? 'No faces' sounds nice, but if the NPC comes knocking it's my chain on the line, not a new startup's.",
+  "would_change_my_mind": "A free or brand-funded pilot in a few of my stores, with written Data Privacy Act clearance, that shows a real sales lift against control stores before I commit to any contract.",
+  "price_too_cheap": 1000,
+  "price_cheap": 2500,
+  "price_expensive": 5000,
+  "price_too_expensive": 8000
+}

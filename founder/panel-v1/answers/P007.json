@@ -1,0 +1,13 @@
+{
+  "id": "P007",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I don't sign a 12-month contract with a new company that has no customer results, and nobody at 7-Eleven or Alfamart is using this that I know of. That's almost a million pesos a year for 10 stores. I already rearrange displays myself every weekend for free.",
+  "objection": "Our CCTV is old and low resolution. I don't believe it can track shoppers well enough to make a simulation I would trust, and I have no proof it works in a store like mine.",
+  "would_change_my_mind": "Seeing a big chain like 7-Eleven or Alfamart get real results with it, or a free pilot on 2-3 of my stores using our old cameras with no 12-month lock-in.",
+  "price_too_cheap": 1000,
+  "price_cheap": 2500,
+  "price_expensive": 5000,
+  "price_too_expensive": 8000
+}

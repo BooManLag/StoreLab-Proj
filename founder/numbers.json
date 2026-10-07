@@ -1,0 +1,25 @@
+{
+  "business": "StoreLab (per-store SaaS for Philippine convenience chains; all amounts in PHP; ESTIMATES, see cfo-sources.md)",
+  "unit": "store-month",
+  "price": 3000,
+  "variable": [
+    {"label": "Cloud compute, video processing, storage, Gemini calls (estimate)", "cost": 450},
+    {"label": "Payment / bank fees ~1% (estimate)", "cost": 30}
+  ],
+  "fixed_monthly": [
+    {"label": "2 engineers (estimate PHP 90k each)", "cost": 180000},
+    {"label": "1 sales & customer success (estimate)", "cost": 60000},
+    {"label": "Base cloud, tools, software (estimate)", "cost": 25000},
+    {"label": "Legal / data-privacy retainer (estimate)", "cost": 20000},
+    {"label": "Coworking desk (estimate)", "cost": 15000}
+  ],
+  "startup": [
+    {"label": "Company registration and permits (estimate)", "cost": 50000},
+    {"label": "Data Privacy Act compliance opinion and DPIA (estimate)", "cost": 150000},
+    {"label": "Pilot field kit and travel for first pilots (estimate)", "cost": 150000},
+    {"label": "Website, brand, sales materials (estimate)", "cost": 50000}
+  ],
+  "days_per_month": 1,
+  "plan_per_day": 150,
+  "ramp_per_day": [0, 0, 0, 0, 10, 10, 20, 20, 30, 40, 50, 60]
+}

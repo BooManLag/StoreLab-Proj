@@ -1,0 +1,13 @@
+{
+  "id": "P011",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "Even the minimum is PHP 80,000 a month locked in for a year, almost a million pesos, and if it works they will want it in every store. My store walks and what has worked before cost me nothing, so I can't sign that for a simulation from a company with no results yet.",
+  "objection": "They have zero customers to show me. I'd be paying to be their guinea pig, and my IT guy is already stretched with CCTV and POS, so I doubt the 'uses your data, no new sensors' part will be as painless as they say.",
+  "would_change_my_mind": "A free or very cheap pilot in 2-3 of my stores for a couple of months, no 12-month lock-in, where their recommended layout actually beats my control stores on sales.",
+  "price_too_cheap": 800,
+  "price_cheap": 2000,
+  "price_expensive": 4000,
+  "price_too_expensive": 6500
+}

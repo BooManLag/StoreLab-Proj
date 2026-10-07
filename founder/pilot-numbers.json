@@ -1,0 +1,14 @@
+{
+  "business": "StoreLab First Experiment / 8-Week Store Test (PHP; ESTIMATES)",
+  "unit": "pilot",
+  "price": 75000,
+  "variable": [
+    {"label": "Delivery: setup, edge box loan, analyst time, travel, cloud (estimate)", "cost": 40000},
+    {"label": "Expected refunds: 30% claim rate x PHP 75,000 (estimate; simulator unproven)", "cost": 22500},
+    {"label": "Payment fees ~1% (estimate)", "cost": 750}
+  ],
+  "fixed_monthly": [{"label": "Covered by the main budget in numbers.json", "cost": 0}],
+  "startup": [{"label": "none beyond numbers.json", "cost": 0}],
+  "days_per_month": 1,
+  "plan_per_day": 2
+}

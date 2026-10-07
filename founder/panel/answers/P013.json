@@ -1,0 +1,13 @@
+{
+  "id": "P013",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "PHP 75,000 with a refund is small money for a chain our size, but I'd have to walk into head office in a cost-cutting quarter and ask them to hand our CCTV and POS data to a company with zero results. I don't spend my credibility on that this month.",
+  "objection": "No track record. A refund gives me my fee back, but it doesn't give me back the eight weeks, the store managers' time or the privacy risk of a stranger connecting to our cameras and sales data. And if it does work, PHP 3,000 a store a month across the chain is a very big recurring number for the board to swallow.",
+  "would_change_my_mind": "A real result from one other Philippine chain, in pesos with a payback period, plus a written cap or tiered price for rolling out past the test stores.",
+  "price_too_cheap": 15000,
+  "price_cheap": 40000,
+  "price_expensive": 120000,
+  "price_too_expensive": 250000
+}

@@ -1,0 +1,13 @@
+{
+  "id": "P014",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "need",
+  "reason": "Most of our endcaps and displays are proposed and paid for by the brands, and I just approve placement and fix things myself on weekend visits. Locking in almost a million pesos a year, at the 10-store minimum for 12 months, to simulate layouts we mostly don't design ourselves is hard to justify, especially from a company with no results yet.",
+  "objection": "Our CCTV is old and low resolution. I don't believe it can track shoppers well enough to build a simulation I'd trust, and nobody has shown it working in a store like ours.",
+  "would_change_my_mind": "A free or paid-on-results pilot in 2-3 of our own stores, using our existing old cameras, that shows a real sales lift, with no 12-month lock-in.",
+  "price_too_cheap": 500,
+  "price_cheap": 1500,
+  "price_expensive": 3500,
+  "price_too_expensive": 6000
+}

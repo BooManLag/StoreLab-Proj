@@ -1,0 +1,13 @@
+{
+  "id": "P002",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I can't take a 12-month, roughly PHP 960,000 commitment to the board for a company with zero customer results. A simulation is only as good as its track record, and nobody has shown me theirs.",
+  "objection": "How do I know the simulated shoppers behave like my real shoppers? If the model is wrong, I've paid to move shelves the wrong way, and I'm the one who recommended it.",
+  "would_change_my_mind": "A short paid or free pilot on a few of our stores with no 12-month lock-in, where their predicted lift is checked against our real control stores before any contract.",
+  "price_too_cheap": 1500,
+  "price_cheap": 3000,
+  "price_expensive": 6000,
+  "price_too_expensive": 10000
+}

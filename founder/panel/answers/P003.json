@@ -1,0 +1,13 @@
+{
+  "id": "P003",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I already paid once for a system nobody touched after three months, and you're a new company with no results from a single chain yet. I'm not putting my name on a PHP 75,000 request to the owner for a company that has never done this before, refund or no refund.",
+  "objection": "You say you have a Data Privacy Act pack, but if the NPC or a customer complains about the cameras being used for analytics, I'm the one who answers for it, not StoreLab. On top of that I don't believe a 2-3 store test will tell me something I can't see myself when I visit the stores on weekends.",
+  "would_change_my_mind": "Speaking to another Philippine chain that ran the test and kept paying afterwards, and having our own lawyer sign off on the privacy opinion before any data leaves our CCTV.",
+  "price_too_cheap": 15000,
+  "price_cheap": 30000,
+  "price_expensive": 60000,
+  "price_too_expensive": 100000
+}

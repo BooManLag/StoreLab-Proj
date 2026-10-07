@@ -1,0 +1,13 @@
+{
+  "id": "P006",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "Ten stores minimum at 8,000 each is 80,000 pesos a month, almost a million a year locked in, and that buys several more staff for my stores. A new company with no results can't show me how I get that back within the year.",
+  "objection": "There's no payback number in pesos, only a simulation, and I'm signing 12 months with a company nobody has tested yet. My IT guy is already stretched with CCTV and POS, so I worry setup will land on him too.",
+  "would_change_my_mind": "A paid pilot on 2-3 of my stores for 2-3 months, no 12-month lock-in, where I only continue if real POS sales in the test stores beat the control stores by more than the fee.",
+  "price_too_cheap": 500,
+  "price_cheap": 1500,
+  "price_expensive": 3000,
+  "price_too_expensive": 5000
+}

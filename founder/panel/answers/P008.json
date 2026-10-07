@@ -1,0 +1,13 @@
+{
+  "id": "P008",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I like the idea of a proper test with control stores, and it is better than the store trials I run now. But you are brand new with no results, and I am not putting my customers on someone's analytics just because you say your privacy pack covers it.",
+  "objection": "Filming customers for analytics under the Data Privacy Act. A counsel opinion you paid for is not the same as my own lawyer saying yes, and if a customer complains, it is my chain's name on it, not yours. And PHP 75,000 is real money for me while I wait on a refund.",
+  "would_change_my_mind": "My own lawyer signing off on the privacy setup, plus talking to one of the other first-round chains after their 8 weeks to see if the result was real.",
+  "price_too_cheap": 15000,
+  "price_cheap": 35000,
+  "price_expensive": 60000,
+  "price_too_expensive": 100000
+}

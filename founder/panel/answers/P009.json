@@ -1,0 +1,13 @@
+{
+  "id": "P009",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "The 75,000 pilot with a refund is almost safe, but the pilot is just the door. At PHP 3,000 a store a month across 120 stores that is 360,000 a month, more than 4 million a year, and I can hire a lot of merchandisers for that. A new company with no results cannot show me that payback today.",
+  "objection": "The refund only says the test stores beat the control stores, not by how much. A 1% win still keeps their fee, and then the real cost is the chain-wide monthly fee, which I can't justify without proof the lift pays for it within the year.",
+  "would_change_my_mind": "A guarantee tied to a minimum peso lift that covers the rollout fee, or a rollout priced only on the stores where the change actually ran, plus one named chain that already got a result.",
+  "price_too_cheap": 15000,
+  "price_cheap": 40000,
+  "price_expensive": 90000,
+  "price_too_expensive": 150000
+}

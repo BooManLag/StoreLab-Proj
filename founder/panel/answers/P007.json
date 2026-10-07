@@ -1,0 +1,13 @@
+{
+  "id": "P007",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "The refund makes the fee feel safe, but I'm not the one who goes first with a brand-new company that has no results. If I see 7-Eleven or Alfamart doing this kind of test, I'll bring it to my boss then.",
+  "objection": "Nobody has used it yet, and our CCTV is old and low resolution. Even with the free readiness check, I'd be spending my own time and taking the risk in front of management on something no other chain has proven.",
+  "would_change_my_mind": "Seeing a bigger chain like 7-Eleven or Alfamart, or a chain I know, use it and get a real peso result I can show my boss.",
+  "price_too_cheap": 15000,
+  "price_cheap": 40000,
+  "price_expensive": 100000,
+  "price_too_expensive": 180000
+}

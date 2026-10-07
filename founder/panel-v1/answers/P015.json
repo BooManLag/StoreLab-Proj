@@ -1,0 +1,13 @@
+{
+  "id": "P015",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "Even the minimum is PHP 80,000 a month, almost a million pesos locked in for a year, from a company with zero customer results, and I'm being told to cut costs this quarter. I've already paid for one system nobody touched after three months, and I'm not signing a 12-month contract to be the guinea pig again.",
+  "objection": "No proof it works in stores like ours, and suppliers decide most of our displays anyway, so I'm not sure how much I can even change based on what the simulation says.",
+  "would_change_my_mind": "A free or paid-on-results pilot in 3 to 5 of our stores for 2 to 3 months with a real control group, and no 12-month lock-in until the sales lift shows up in our own POS.",
+  "price_too_cheap": 1000,
+  "price_cheap": 2500,
+  "price_expensive": 5000,
+  "price_too_expensive": 7000
+}

@@ -1,0 +1,13 @@
+{
+  "id": "P014",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "need",
+  "reason": "Most of our displays are proposed and paid for by the brands, so I mostly just approve placement and fix things myself on weekend store visits. Paying 75,000 to test changes I don't really control is hard to justify, and a new company with no results makes it harder.",
+  "objection": "Our CCTV is old and low resolution, and even with the free check I doubt it gives you good enough data. Then if it does work, 3,000 per store per month across the whole chain is real money for something the suppliers should be paying for.",
+  "would_change_my_mind": "If a supplier or brand paid for the test, or the endcap report proved I could charge suppliers more for the best slots, enough to cover the fee.",
+  "price_too_cheap": 10000,
+  "price_cheap": 25000,
+  "price_expensive": 50000,
+  "price_too_expensive": 80000
+}

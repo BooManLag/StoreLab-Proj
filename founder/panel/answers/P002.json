@@ -1,0 +1,13 @@
+{
+  "id": "P002",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "The money-back guarantee is good, but I can't take a new company with no results to my board and ask them to let outsiders plug into our CCTV and POS. If it goes wrong I am the one who recommended it, so this month I would watch, not sign.",
+  "objection": "No customer results, and they want access to our camera footage and sales data. The board will ask who else uses them and what happens to our data, and I have no answer.",
+  "would_change_my_mind": "One named chain of our size that ran the test and will take my call, plus a contract that makes clear our data stays ours and gets deleted if we stop.",
+  "price_too_cheap": 15000,
+  "price_cheap": 40000,
+  "price_expensive": 120000,
+  "price_too_expensive": 250000
+}

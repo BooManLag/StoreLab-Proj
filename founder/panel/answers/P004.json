@@ -1,0 +1,13 @@
+{
+  "id": "P004",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "You are a new company with no results, and the front half of this is a simulation, not real shoppers. Our displays are mostly proposed and paid for by suppliers anyway, so after a slow quarter I won't spend budget or management time testing changes we don't really make ourselves.",
+  "objection": "A simulation is not real shoppers, and with no customer results I have no reason to believe your matched control stores will hold up when my board looks at it. The refund covers the fee, but not the weeks my store and merchandising teams lose running it.",
+  "would_change_my_mind": "A result from another Philippine chain I can call, or a pitch that makes the test pay for itself through suppliers, for example proof that endcap slot pricing lets me charge brands more for placement.",
+  "price_too_cheap": 15000,
+  "price_cheap": 35000,
+  "price_expensive": 75000,
+  "price_too_expensive": 120000
+}

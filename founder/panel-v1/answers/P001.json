@@ -1,0 +1,13 @@
+{
+  "id": "P001",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "Even at the 10-store minimum that's PHP 80,000 a month, almost a million a year, locked in for 12 months with a company that has zero results to show me. For that money I could hire several merchandisers and just run a real pilot in a few stores myself.",
+  "objection": "A simulation is only as good as its assumptions, and nobody has proven it predicts what my shoppers actually do. My supplier reps already pay for and run display tests for free, so I can't see the payback within the year.",
+  "would_change_my_mind": "A paid pilot on 3 to 5 stores for 2-3 months with no 12-month lock-in, where the money-back depends on the predicted sales lift actually showing up against control stores.",
+  "price_too_cheap": 1000,
+  "price_cheap": 2500,
+  "price_expensive": 5000,
+  "price_too_expensive": 8000
+}

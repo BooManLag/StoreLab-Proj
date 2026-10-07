@@ -1,0 +1,13 @@
+{
+  "id": "P004",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "You want almost a million pesos a year from me on a 12-month lock-in, right after a slow quarter, for a simulation from a company with zero customer results. On top of that, the brands propose and pay for most of our displays, so I'm not the one moving most of these shelves anyway.",
+  "objection": "A simulation is not real shoppers. Why would I trust a model built from our CCTV over just running a cheap pilot in two or three stores the way we already do?",
+  "would_change_my_mind": "A free or paid-on-results pilot in a few of our stores where the simulated prediction actually matched what happened at the till, with no 12-month contract until that is proven.",
+  "price_too_cheap": 1000,
+  "price_cheap": 2500,
+  "price_expensive": 5000,
+  "price_too_expensive": 8000
+}

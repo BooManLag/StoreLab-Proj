@@ -1,0 +1,95 @@
+{
+ "n": 20,
+ "seed": 7,
+ "customer": {
+  "business": "StoreLab (A/B testing for physical retail: simulate store layout and display changes on your own store's data before moving a shelf)",
+  "target": "Owners and operations/merchandising heads of mid-size Philippine convenience and mini-mart chains (20 to 500 stores) that already run CCTV in their stores; all prices are in Philippine pesos (PHP)",
+  "where": "Metro Manila and regional Philippines",
+  "age": [
+   32,
+   58
+  ],
+  "segments": [
+   {
+    "name": "Owner-operator of a 20-60 store regional chain",
+    "share": 0.4,
+    "income": [
+     25000,
+     80000
+    ]
+   },
+   {
+    "name": "Head of operations or merchandising at a 60-200 store chain",
+    "share": 0.35,
+    "income": [
+     20000,
+     50000
+    ]
+   },
+   {
+    "name": "Commercial or category director at a 200-500 store chain",
+    "share": 0.25,
+    "income": [
+     35000,
+     90000
+    ]
+   }
+  ],
+  "behaviours": [
+   {
+    "name": "Gut-feel merchandiser",
+    "share": 0.22,
+    "how": "Decides layouts from experience and store walks; trusts what has worked before."
+   },
+   {
+    "name": "Cost cutter",
+    "share": 0.18,
+    "how": "Every new monthly fee must show payback within the year; compares against hiring one more staff member."
+   },
+   {
+    "name": "Supplier-led displays",
+    "share": 0.16,
+    "how": "Most endcaps and displays are proposed and paid for by brands; the chain mainly approves placement."
+   },
+   {
+    "name": "Data-curious tester",
+    "share": 0.14,
+    "how": "Already reads POS reports weekly and has tried small store trials; wants better evidence."
+   },
+   {
+    "name": "Burned by a tech vendor",
+    "share": 0.12,
+    "how": "Paid for a system before that nobody used after three months; very cautious with new software."
+   },
+   {
+    "name": "Follows the market leader",
+    "share": 0.1,
+    "how": "Watches what 7-Eleven and Alfamart do and copies what seems to work."
+   },
+   {
+    "name": "Needs head-office approval",
+    "share": 0.08,
+    "how": "Can recommend a purchase but the owner or board signs anything recurring."
+   }
+  ],
+  "objections": [
+   "A simulation is not real shoppers; why would I trust it?",
+   "Our CCTV is old and low resolution; will it even work?",
+   "PHP 8,000 a store every month adds up across the whole chain",
+   "We have no time or staff to run pilots and move fixtures",
+   "Suppliers decide most of our displays anyway",
+   "Is this allowed under the Data Privacy Act, filming customers for analytics?",
+   "A new company with no customer results yet",
+   "What is the payback, in pesos?"
+  ],
+  "habits": [
+   "you review weekly POS sales by category every Monday",
+   "you visit stores on weekends and rearrange displays yourself",
+   "you meet supplier sales reps every week about promos and displays",
+   "you are under pressure to cut costs after a slow quarter",
+   "you watch what the big chains change in their stores",
+   "your IT person also handles the CCTV and the POS"
+  ]
+ },
+ "pitch": "The StoreLab 8-Week Store Test: find out in 8 weeks whether a store change sells more, before you roll it out to the whole chain.\nGive us one goal, for example \"+10% snack sales without slowing the checkout\". StoreLab recommends the change, simulates it on your own store's CCTV and POS data, then runs it in 2–3 test stores against matched control stores. You get the real result in pesos, on one page for your board.\nPHP 75,000 for the 8 weeks. There is no lock-in. If the test stores don't beat the control stores on the agreed goal, you get the full fee back. If you continue, the fee is credited against month-to-month service at PHP 3,000 per store per month.\nIncluded: a free camera-readiness check before you sign, so you know your existing cameras work. We connect the CCTV and POS ourselves, so there is no work for your IT person. You get a Data Privacy Act pack (impact assessment template, privacy signage and a counsel opinion), plus a report on which endcap slots are worth most for supplier-funded displays.\nStoreLab is a new company with no customer results yet. Only 5 chains can join this first round."
+}

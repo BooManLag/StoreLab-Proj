@@ -1,0 +1,13 @@
+{
+  "id": "P011",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I already know what sells in my stores from walking them every week, and this is a new company with no results anywhere. The refund helps, but I'd have to spend my own credibility getting the owner to approve PHP 75,000 and hand over our CCTV and POS to strangers.",
+  "objection": "Nobody has used this yet. If the test says something different from what my gut and my store walks tell me, why would I trust their numbers over my experience? And after the test it's PHP 3,000 a store every month, which across 100-plus stores is a big monthly bill I'd have to defend.",
+  "would_change_my_mind": "Seeing real peso results from another Philippine chain like ours, ideally one I know or can call, so I'm not the first to try it.",
+  "price_too_cheap": 15000,
+  "price_cheap": 30000,
+  "price_expensive": 60000,
+  "price_too_expensive": 100000
+}

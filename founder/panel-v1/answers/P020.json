@@ -1,0 +1,13 @@
+{
+  "id": "P020",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I've set up our stores by walking them and seeing what sells for years, and that works for us. I'm not locking in almost a million pesos a year with a new company that has no results yet, and I'm not handing our CCTV footage to someone without our legal people saying it's fine.",
+  "objection": "Is it even allowed under the Data Privacy Act to use our CCTV of customers for analytics? If the NPC comes after us, the chain takes the hit, not StoreLab. On top of that, our IT guy already handles the CCTV and the POS, and I don't want to dump another project on him.",
+  "would_change_my_mind": "A free or cheap pilot in two or three of our stores, with a written Data Privacy Act compliance opinion, that shows real sales lift against our other stores and doesn't need much work from our IT.",
+  "price_too_cheap": 1000,
+  "price_cheap": 2500,
+  "price_expensive": 5000,
+  "price_too_expensive": 8000
+}

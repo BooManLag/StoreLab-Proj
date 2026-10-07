@@ -1,0 +1,13 @@
+{
+  "id": "P019",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I don't go first on things like this. Nobody I watch, not 7-Eleven, not Alfamart, is using StoreLab, and you have zero customer results, so I'd rather wait and copy whoever tries it and wins.",
+  "objection": "A brand-new company with no track record, wanting into my CCTV and POS. The refund helps on the fee, but it doesn't give me back eight weeks of my team's time or cover me if the data side goes wrong. And if it works, PHP 3,000 a store every month across 40 stores is over PHP 100,000 a month, every month.",
+  "would_change_my_mind": "Seeing a chain I know, ideally one of the big players or a regional chain my size, show a real peso result from it, or one of my supplier reps backing it and co-paying for the test through display money.",
+  "price_too_cheap": 15000,
+  "price_cheap": 35000,
+  "price_expensive": 75000,
+  "price_too_expensive": 120000
+}

@@ -1,0 +1,13 @@
+{
+  "id": "P018",
+  "buys": true,
+  "purchases_first_month": 1,
+  "reason_code": "need",
+  "reason": "I already run small store trials off POS reports and can never prove what caused the lift, so a matched-control test with a full refund if it fails is worth PHP 75,000 to me. That is small enough that I can sign it off without a long fight with the owner.",
+  "objection": "Our CCTV is old and low resolution, and you're a brand-new company with no results. I'm only signing if the free camera check actually passes in the stores I'd pick, and I want to see who decides whether the test 'beat' control before we start.",
+  "would_change_my_mind": "If the camera-readiness check says our cameras aren't good enough, or the refund terms leave the win/loss call to StoreLab, I walk away.",
+  "price_too_cheap": 15000,
+  "price_cheap": 40000,
+  "price_expensive": 120000,
+  "price_too_expensive": 200000
+}

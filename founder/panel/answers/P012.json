@@ -1,0 +1,13 @@
+{
+  "id": "P012",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "After a slow quarter I am cutting costs, not starting projects with a brand-new company that has zero results and wants to plug into my CCTV and POS. Most of my displays are paid for by suppliers anyway, so I am not sure what I am testing that they would not test for me.",
+  "objection": "Filming customers for analytics under the Data Privacy Act. A template and a counsel opinion from the vendor's own lawyer does not protect me if the NPC comes knocking or a customer complains, and the fee-back only covers the fee, not the trouble.",
+  "would_change_my_mind": "Seeing one real chain like mine that ran it, with their result in pesos and confirmation their DPO and the NPC side were clean, ideally with a supplier co-paying the test.",
+  "price_too_cheap": 15000,
+  "price_cheap": 35000,
+  "price_expensive": 60000,
+  "price_too_expensive": 100000
+}

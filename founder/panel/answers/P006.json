@@ -1,0 +1,13 @@
+{
+  "id": "P006",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "The refund makes the 75,000 pilot less scary, but you're a new company with zero results, and the real cost is what comes after: at 3,000 per store per month across my chain, that's more than a year's pay for an extra staff member. I need to see the payback in pesos from someone else's stores first.",
+  "objection": "No track record at all. And who decides what 'beat the control stores' means? I'd also lose 8 weeks of my managers' attention and give outsiders access to my CCTV and POS for a promise.",
+  "would_change_my_mind": "One real result from another Philippine chain my size, showing the peso gain against the monthly fee, plus pricing for continuing that's capped or only charged on the stores that actually gain.",
+  "price_too_cheap": 15000,
+  "price_cheap": 30000,
+  "price_expensive": 60000,
+  "price_too_expensive": 100000
+}

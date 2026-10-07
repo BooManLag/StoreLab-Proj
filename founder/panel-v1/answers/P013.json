@@ -1,0 +1,13 @@
+{
+  "id": "P013",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "Ten stores minimum on a 12-month contract is almost a million pesos committed, and we just had a slow quarter. I can't walk into the board asking for that from a new company with zero customer results and no payback number.",
+  "objection": "Nobody has proven the simulation actually predicts sales in a real store. If the suggestions are wrong, I've locked us into a year of paying for it and I'm the one who recommended it.",
+  "would_change_my_mind": "A free or paid-on-results pilot in 3 to 5 of our stores with a proper control group that shows the sales lift in pesos covers the fee, and no 12-month lock-in until it does.",
+  "price_too_cheap": 1000,
+  "price_cheap": 2500,
+  "price_expensive": 5000,
+  "price_too_expensive": 8000
+}

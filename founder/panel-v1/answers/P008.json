@@ -1,0 +1,13 @@
+{
+  "id": "P008",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I like the idea, I already test things in a few stores, but I'm not signing a 12-month contract worth almost a million pesos with a new company that has zero results and no answer yet on whether filming my customers for analytics is OK under the Data Privacy Act.",
+  "objection": "Nobody has proven the simulation matches what real shoppers do, and if the NPC or a customer complains about the CCTV analytics, I carry the risk, not StoreLab.",
+  "would_change_my_mind": "A paid pilot in 2-3 of my stores for 2-3 months with no long contract, plus a written Data Privacy Act compliance opinion, and they show me the predicted lift actually happened against my control stores.",
+  "price_too_cheap": 1000,
+  "price_cheap": 2500,
+  "price_expensive": 5000,
+  "price_too_expensive": 8000
+}

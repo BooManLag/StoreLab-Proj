@@ -1,0 +1,222 @@
+[
+ {
+  "id": "P001",
+  "name": "Omar",
+  "age": 32,
+  "segment": "Commercial or category director at a 200-500 store chain",
+  "income": 62000,
+  "behaviour": "Cost cutter",
+  "behaviour_how": "Every new monthly fee must show payback within the year; compares against hiring one more staff member.",
+  "objection": "PHP 8,000 a store every month adds up across the whole chain",
+  "habit": "you meet supplier sales reps every week about promos and displays"
+ },
+ {
+  "id": "P002",
+  "name": "Raj",
+  "age": 41,
+  "segment": "Commercial or category director at a 200-500 store chain",
+  "income": 35000,
+  "behaviour": "Needs head-office approval",
+  "behaviour_how": "Can recommend a purchase but the owner or board signs anything recurring.",
+  "objection": "A new company with no customer results yet",
+  "habit": "you watch what the big chains change in their stores"
+ },
+ {
+  "id": "P003",
+  "name": "Emil",
+  "age": 43,
+  "segment": "Head of operations or merchandising at a 60-200 store chain",
+  "income": 38000,
+  "behaviour": "Burned by a tech vendor",
+  "behaviour_how": "Paid for a system before that nobody used after three months; very cautious with new software.",
+  "objection": "Is this allowed under the Data Privacy Act, filming customers for analytics?",
+  "habit": "you visit stores on weekends and rearrange displays yourself"
+ },
+ {
+  "id": "P004",
+  "name": "Owen",
+  "age": 54,
+  "segment": "Commercial or category director at a 200-500 store chain",
+  "income": 82000,
+  "behaviour": "Supplier-led displays",
+  "behaviour_how": "Most endcaps and displays are proposed and paid for by brands; the chain mainly approves placement.",
+  "objection": "A simulation is not real shoppers; why would I trust it?",
+  "habit": "you are under pressure to cut costs after a slow quarter"
+ },
+ {
+  "id": "P005",
+  "name": "Sana",
+  "age": 56,
+  "segment": "Owner-operator of a 20-60 store regional chain",
+  "income": 77000,
+  "behaviour": "Cost cutter",
+  "behaviour_how": "Every new monthly fee must show payback within the year; compares against hiring one more staff member.",
+  "objection": "A new company with no customer results yet",
+  "habit": "you are under pressure to cut costs after a slow quarter"
+ },
+ {
+  "id": "P006",
+  "name": "Maya",
+  "age": 44,
+  "segment": "Owner-operator of a 20-60 store regional chain",
+  "income": 47000,
+  "behaviour": "Cost cutter",
+  "behaviour_how": "Every new monthly fee must show payback within the year; compares against hiring one more staff member.",
+  "objection": "What is the payback, in pesos?",
+  "habit": "your IT person also handles the CCTV and the POS"
+ },
+ {
+  "id": "P007",
+  "name": "Selin",
+  "age": 44,
+  "segment": "Commercial or category director at a 200-500 store chain",
+  "income": 38000,
+  "behaviour": "Follows the market leader",
+  "behaviour_how": "Watches what 7-Eleven and Alfamart do and copies what seems to work.",
+  "objection": "Our CCTV is old and low resolution; will it even work?",
+  "habit": "you visit stores on weekends and rearrange displays yourself"
+ },
+ {
+  "id": "P008",
+  "name": "Ruby",
+  "age": 46,
+  "segment": "Owner-operator of a 20-60 store regional chain",
+  "income": 34000,
+  "behaviour": "Data-curious tester",
+  "behaviour_how": "Already reads POS reports weekly and has tried small store trials; wants better evidence.",
+  "objection": "Is this allowed under the Data Privacy Act, filming customers for analytics?",
+  "habit": "you watch what the big chains change in their stores"
+ },
+ {
+  "id": "P009",
+  "name": "Nora",
+  "age": 33,
+  "segment": "Head of operations or merchandising at a 60-200 store chain",
+  "income": 23000,
+  "behaviour": "Cost cutter",
+  "behaviour_how": "Every new monthly fee must show payback within the year; compares against hiring one more staff member.",
+  "objection": "PHP 8,000 a store every month adds up across the whole chain",
+  "habit": "you watch what the big chains change in their stores"
+ },
+ {
+  "id": "P010",
+  "name": "Fatima",
+  "age": 35,
+  "segment": "Owner-operator of a 20-60 store regional chain",
+  "income": 77000,
+  "behaviour": "Data-curious tester",
+  "behaviour_how": "Already reads POS reports weekly and has tried small store trials; wants better evidence.",
+  "objection": "A simulation is not real shoppers; why would I trust it?",
+  "habit": "you review weekly POS sales by category every Monday"
+ },
+ {
+  "id": "P011",
+  "name": "Tariq",
+  "age": 38,
+  "segment": "Head of operations or merchandising at a 60-200 store chain",
+  "income": 38000,
+  "behaviour": "Gut-feel merchandiser",
+  "behaviour_how": "Decides layouts from experience and store walks; trusts what has worked before.",
+  "objection": "PHP 8,000 a store every month adds up across the whole chain",
+  "habit": "your IT person also handles the CCTV and the POS"
+ },
+ {
+  "id": "P012",
+  "name": "Felix",
+  "age": 40,
+  "segment": "Owner-operator of a 20-60 store regional chain",
+  "income": 78000,
+  "behaviour": "Supplier-led displays",
+  "behaviour_how": "Most endcaps and displays are proposed and paid for by brands; the chain mainly approves placement.",
+  "objection": "Is this allowed under the Data Privacy Act, filming customers for analytics?",
+  "habit": "you are under pressure to cut costs after a slow quarter"
+ },
+ {
+  "id": "P013",
+  "name": "Zoe",
+  "age": 35,
+  "segment": "Commercial or category director at a 200-500 store chain",
+  "income": 41000,
+  "behaviour": "Needs head-office approval",
+  "behaviour_how": "Can recommend a purchase but the owner or board signs anything recurring.",
+  "objection": "What is the payback, in pesos?",
+  "habit": "you are under pressure to cut costs after a slow quarter"
+ },
+ {
+  "id": "P014",
+  "name": "Dev",
+  "age": 47,
+  "segment": "Head of operations or merchandising at a 60-200 store chain",
+  "income": 35000,
+  "behaviour": "Supplier-led displays",
+  "behaviour_how": "Most endcaps and displays are proposed and paid for by brands; the chain mainly approves placement.",
+  "objection": "Our CCTV is old and low resolution; will it even work?",
+  "habit": "you visit stores on weekends and rearrange displays yourself"
+ },
+ {
+  "id": "P015",
+  "name": "Yusuf",
+  "age": 35,
+  "segment": "Head of operations or merchandising at a 60-200 store chain",
+  "income": 42000,
+  "behaviour": "Burned by a tech vendor",
+  "behaviour_how": "Paid for a system before that nobody used after three months; very cautious with new software.",
+  "objection": "Suppliers decide most of our displays anyway",
+  "habit": "you are under pressure to cut costs after a slow quarter"
+ },
+ {
+  "id": "P016",
+  "name": "Theo",
+  "age": 58,
+  "segment": "Owner-operator of a 20-60 store regional chain",
+  "income": 63000,
+  "behaviour": "Gut-feel merchandiser",
+  "behaviour_how": "Decides layouts from experience and store walks; trusts what has worked before.",
+  "objection": "A simulation is not real shoppers; why would I trust it?",
+  "habit": "you visit stores on weekends and rearrange displays yourself"
+ },
+ {
+  "id": "P017",
+  "name": "Alma",
+  "age": 48,
+  "segment": "Owner-operator of a 20-60 store regional chain",
+  "income": 45000,
+  "behaviour": "Gut-feel merchandiser",
+  "behaviour_how": "Decides layouts from experience and store walks; trusts what has worked before.",
+  "objection": "A simulation is not real shoppers; why would I trust it?",
+  "habit": "you watch what the big chains change in their stores"
+ },
+ {
+  "id": "P018",
+  "name": "Freya",
+  "age": 41,
+  "segment": "Head of operations or merchandising at a 60-200 store chain",
+  "income": 49000,
+  "behaviour": "Data-curious tester",
+  "behaviour_how": "Already reads POS reports weekly and has tried small store trials; wants better evidence.",
+  "objection": "Our CCTV is old and low resolution; will it even work?",
+  "habit": "your IT person also handles the CCTV and the POS"
+ },
+ {
+  "id": "P019",
+  "name": "Harper",
+  "age": 40,
+  "segment": "Owner-operator of a 20-60 store regional chain",
+  "income": 54000,
+  "behaviour": "Follows the market leader",
+  "behaviour_how": "Watches what 7-Eleven and Alfamart do and copies what seems to work.",
+  "objection": "PHP 8,000 a store every month adds up across the whole chain",
+  "habit": "you meet supplier sales reps every week about promos and displays"
+ },
+ {
+  "id": "P020",
+  "name": "Emma",
+  "age": 56,
+  "segment": "Head of operations or merchandising at a 60-200 store chain",
+  "income": 27000,
+  "behaviour": "Gut-feel merchandiser",
+  "behaviour_how": "Decides layouts from experience and store walks; trusts what has worked before.",
+  "objection": "Is this allowed under the Data Privacy Act, filming customers for analytics?",
+  "habit": "your IT person also handles the CCTV and the POS"
+ }
+]

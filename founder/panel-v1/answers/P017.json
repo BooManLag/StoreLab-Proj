@@ -1,0 +1,13 @@
+{
+  "id": "P017",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I move shelves based on what I see on my store walks and what has worked for years, and I'm not locking myself into almost a million pesos a year for a computer guess from a company with zero customers. If I want to test a layout, I change it in two stores and watch the sales myself.",
+  "objection": "A simulation is not real shoppers. Why would I trust made-up customers over my own eyes and my own POS numbers, especially when nobody has used this yet?",
+  "would_change_my_mind": "A free or very cheap pilot in a few of my own stores where its recommendation actually beats my own layout in real sales, or proof that one of the big chains I watch is using it and getting results.",
+  "price_too_cheap": 500,
+  "price_cheap": 1500,
+  "price_expensive": 3000,
+  "price_too_expensive": 5000
+}

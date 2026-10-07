@@ -1,0 +1,13 @@
+{
+  "id": "P003",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "Ten stores for twelve months is almost a million pesos locked in with a company that has zero results. I already paid for a system nobody touched after three months, and I'm not explaining that to the owner a second time.",
+  "objection": "Nobody has proven it works, and I don't know if using our CCTV for analytics is even clean under the Data Privacy Act. If NPC or a customer complains, I'm the one holding it.",
+  "would_change_my_mind": "A free or paid-on-results pilot in 2-3 of our stores for 2-3 months with no 12-month lock-in, plus a written Data Privacy Act compliance opinion I can show our DPO.",
+  "price_too_cheap": 800,
+  "price_cheap": 2000,
+  "price_expensive": 4500,
+  "price_too_expensive": 7000
+}

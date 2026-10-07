@@ -1,0 +1,13 @@
+{
+  "id": "P016",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I walk my stores every weekend and move the displays myself; I already know what sells. A new company with no results, simulating my shoppers off camera footage, isn't going to tell me something my own eyes don't, and I'm not letting strangers wire into my CCTV and POS to find out.",
+  "objection": "A simulation is not real shoppers, and you have zero chains to show me. The money-back promise means nothing if you're gone in a year, and I'd still be the one who gave a startup access to my cameras and sales data.",
+  "would_change_my_mind": "Seeing it work at a chain I know, with the owner telling me himself that the test stores sold more than he would have guessed by gut.",
+  "price_too_cheap": 15000,
+  "price_cheap": 30000,
+  "price_expensive": 60000,
+  "price_too_expensive": 100000
+}

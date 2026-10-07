@@ -1,0 +1,13 @@
+{
+  "id": "P015",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "trust",
+  "reason": "I already paid for a system nobody touched after three months, and right after a slow quarter I can't go to my boss with PHP 75,000 for a brand-new company with zero results. Besides, suppliers decide most of our displays anyway, so I'm not sure how much I can even change.",
+  "objection": "You have no customers and no track record. The refund sounds nice, but who decides whether the test stores 'beat' the controls, and will you still be around to pay me back if they don't?",
+  "would_change_my_mind": "A result from another Philippine chain like ours, or a pilot where the supplier-funded endcap money covers the fee so it costs us nothing out of pocket.",
+  "price_too_cheap": 10000,
+  "price_cheap": 30000,
+  "price_expensive": 60000,
+  "price_too_expensive": 100000
+}

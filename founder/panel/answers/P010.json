@@ -1,0 +1,13 @@
+{
+  "id": "P010",
+  "buys": true,
+  "purchases_first_month": 1,
+  "reason_code": "need",
+  "reason": "I already run small store trials off my Monday POS reports, but I never have proper control stores, so the evidence is always soft. If the result is measured on real test stores against matched controls and I get the fee back when it doesn't win, PHP 75,000 is a risk I can take, as long as the free camera check comes first.",
+  "objection": "You're a new company with no results, and the 'simulation' part still sounds like a guess dressed up as data. I also worry about the matched control stores. If they aren't really comparable, the refund rule means nothing, and I'm the one explaining CCTV footage to staff and customers under the Data Privacy Act.",
+  "would_change_my_mind": "If the camera check showed my cameras need replacing, or the contract let StoreLab pick the control stores and define 'beat' after the fact, I would walk away.",
+  "price_too_cheap": 15000,
+  "price_cheap": 40000,
+  "price_expensive": 100000,
+  "price_too_expensive": 160000
+}

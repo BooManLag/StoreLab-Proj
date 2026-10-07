@@ -1,0 +1,144 @@
+{
+ "business": "StoreLab (A/B testing for physical retail: simulate store layout and display changes on your own store's data before moving a shelf)",
+ "seed": 7,
+ "dealt": 20,
+ "answered": 20,
+ "skipped": [],
+ "buys": 0,
+ "passes": 20,
+ "buy_rate": 0.0,
+ "by_segment": [
+  [
+   "Commercial or category director at a 200-500 store chain",
+   5,
+   0.0
+  ],
+  [
+   "Head of operations or merchandising at a 60-200 store chain",
+   7,
+   0.0
+  ],
+  [
+   "Owner-operator of a 20-60 store regional chain",
+   8,
+   0.0
+  ]
+ ],
+ "by_behaviour": [
+  [
+   "Cost cutter",
+   4,
+   0.0
+  ],
+  [
+   "Needs head-office approval",
+   2,
+   0.0
+  ],
+  [
+   "Burned by a tech vendor",
+   2,
+   0.0
+  ],
+  [
+   "Supplier-led displays",
+   3,
+   0.0
+  ],
+  [
+   "Follows the market leader",
+   2,
+   0.0
+  ],
+  [
+   "Data-curious tester",
+   3,
+   0.0
+  ],
+  [
+   "Gut-feel merchandiser",
+   4,
+   0.0
+  ]
+ ],
+ "by_income": [
+  [
+   "$54,000 and up",
+   7,
+   0.0
+  ],
+  [
+   "under $38,000",
+   5,
+   0.0
+  ],
+  [
+   "$38,000 to $54,000",
+   8,
+   0.0
+  ]
+ ],
+ "why_not": [
+  [
+   "trust",
+   14,
+   [
+    "Even at the 10-store minimum that's PHP 80,000 a month, almost a million a year, locked in for 12 months with a company that has zero results to show me. For that money I could hire several merchandisers and just run a real pilot in a few stores myself.",
+    "I can't take a 12-month, roughly PHP 960,000 commitment to the board for a company with zero customer results. A simulation is only as good as its track record, and nobody has shown me theirs."
+   ],
+   [
+    "P001",
+    "P002"
+   ]
+  ],
+  [
+   "price",
+   4,
+   [
+    "Ten stores minimum at PHP 8,000 each is PHP 80,000 a month, almost a million pesos locked in for a year, right after a slow quarter when I'm being told to cut. That money hires several more store staff, and I can see what staff do for me.",
+    "Ten stores minimum at 8,000 each is 80,000 pesos a month, almost a million a year locked in, and that buys several more staff for my stores. A new company with no results can't show me how I get that back within the year."
+   ],
+   [
+    "P005",
+    "P006"
+   ]
+  ],
+  [
+   "need",
+   2,
+   [
+    "Most of my endcaps and displays are proposed and paid for by the brands, I mostly just approve placement, so I don't see why I'd pay close to a million pesos a year to simulate something suppliers already fund. After a slow quarter I'm cutting costs, not signing 12-month contracts with a company that has zero customer results.",
+    "Most of our endcaps and displays are proposed and paid for by the brands, and I just approve placement and fix things myself on weekend visits. Locking in almost a million pesos a year, at the 10-store minimum for 12 months, to simulate layouts we mostly don't design ourselves is hard to justify, especially from a company with no results yet."
+   ],
+   [
+    "P012",
+    "P014"
+   ]
+  ]
+ ],
+ "why_yes": [],
+ "flip": [
+  "A paid pilot on 3 to 5 stores for 2-3 months with no 12-month lock-in, where the money-back depends on the predicted sales lift actually showing up against control stores.",
+  "A short paid or free pilot on a few of our stores with no 12-month lock-in, where their predicted lift is checked against our real control stores before any contract.",
+  "A free or paid-on-results pilot in 2-3 of our stores for 2-3 months with no 12-month lock-in, plus a written Data Privacy Act compliance opinion I can show our DPO.",
+  "A free or paid-on-results pilot in a few of our stores where the simulated prediction actually matched what happened at the till, with no 12-month contract until that is proven.",
+  "A free or paid-by-results pilot in two or three of my stores against control stores that shows a sales lift covering the fee, with no 12-month lock-in.",
+  "A paid pilot on 2-3 of my stores for 2-3 months, no 12-month lock-in, where I only continue if real POS sales in the test stores beat the control stores by more than the fee.",
+  "Seeing a big chain like 7-Eleven or Alfamart get real results with it, or a free pilot on 2-3 of my stores using our old cameras with no 12-month lock-in.",
+  "A paid pilot in 2-3 of my stores for 2-3 months with no long contract, plus a written Data Privacy Act compliance opinion, and they show me the predicted lift actually happened against my control stores.",
+  "A paid pilot on 2 or 3 of my stores for 2-3 months with no annual lock-in, where I only continue if the test stores beat the control stores by more than the fee.",
+  "A short paid pilot on 2-3 of my stores with no 12-month lock-in, where StoreLab predicts the result of a layout change before we make it and the real POS numbers from test vs control stores confirm it.",
+  "A free or very cheap pilot in 2-3 of my stores for a couple of months, no 12-month lock-in, where their recommended layout actually beats my control stores on sales.",
+  "A free or brand-funded pilot in a few of my stores, with written Data Privacy Act clearance, that shows a real sales lift against control stores before I commit to any contract.",
+  "A free or paid-on-results pilot in 3 to 5 of our stores with a proper control group that shows the sales lift in pesos covers the fee, and no 12-month lock-in until it does.",
+  "A free or paid-on-results pilot in 2-3 of our own stores, using our existing old cameras, that shows a real sales lift, with no 12-month lock-in.",
+  "A free or paid-on-results pilot in 3 to 5 of our stores for 2 to 3 months with a real control group, and no 12-month lock-in until the sales lift shows up in our own POS.",
+  "A free or very cheap pilot in two or three of my stores where their recommended layout actually beats my own arrangement in real POS sales over a couple of months.",
+  "A free or very cheap pilot in a few of my own stores where its recommendation actually beats my own layout in real sales, or proof that one of the big chains I watch is using it and getting results.",
+  "A short paid pilot on 2-3 of our stores with no 12-month lock-in, where they first check our actual CCTV footage and then show the simulation predicted a real change we measured in the POS.",
+  "Seeing a big chain like 7-Eleven or Alfamart using it with real sales lift, plus a short paid pilot on 2-3 stores without a 12-month lock-in.",
+  "A free or cheap pilot in two or three of our stores, with a written Data Privacy Act compliance opinion, that shows real sales lift against our other stores and doesn't need much work from our IT."
+ ],
+ "purchases_first_month_per_buyer": null,
+ "price_answers": 20
+}

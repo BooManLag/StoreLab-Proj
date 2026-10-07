@@ -1,0 +1,13 @@
+{
+  "id": "P009",
+  "buys": false,
+  "purchases_first_month": 0,
+  "reason_code": "price",
+  "reason": "Even the 10-store minimum is almost PHP 960,000 a year, which is more than a year of salary for a merchandising staff member, and nobody can show me it pays back. I'd rather copy what the big chains are already doing with their layouts and test it in a couple of stores myself.",
+  "objection": "A new company with zero customer results is asking me to lock in 12 months at PHP 8,000 a store when I can't prove a simulated shopper will move my real snack sales enough to cover that.",
+  "would_change_my_mind": "A paid pilot on 2 or 3 of my stores for 2-3 months with no annual lock-in, where I only continue if the test stores beat the control stores by more than the fee.",
+  "price_too_cheap": 1000,
+  "price_cheap": 2500,
+  "price_expensive": 5000,
+  "price_too_expensive": 8000
+}
