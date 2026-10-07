@@ -70,3 +70,8 @@ Honest result: public complaint data for this B2B category is almost empty. Real
 3. **InContext Solutions.** It already sells prediction before change. Adding store-specific camera data would close the "existing cameras" half of the gap.
 
 StoreLab's defence is speed into one local segment, and building up real pilot results that copycats don't have.
+
+## Added during `/founder-brand` (2026-10-07): a same-name competitor
+
+- **StoreLab™ (Australia, Brookvale NSW)** describes itself as "a global leader in VR simulation, focus group and research", whose software "put[s] powerful shopper marketing ideas into a 'life-like' virtual store, with planogramming, analytics and instant trade presentation" ([search-result listing](https://thedirectory.thevrara.com/organization/4684); the page itself failed its TLS check, so this is from the search summary, **not verified**). It is a **direct competitor using the same name and claiming a trademark (™)**: see `brand.md`.
+- A separate **StoreLab** (UK, founded 2020) sells a Shopify mobile-app builder ([Shopify App Store](https://apps.shopify.com/storelab?locale=it), [CB Insights](https://www.cbinsights.com/compare/storelab-vs-tapcart)). It is a different category, but adds to name confusion.

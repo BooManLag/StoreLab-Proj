@@ -1,5 +1,5 @@
-StoreLab: test store layout and display changes on a simulation of your own store before you move a shelf.
-It uses the CCTV and POS data you already have. No new sensors. Shoppers are tracked anonymously, with no faces and no identity.
-You type a goal (for example "+10% snack sales, don't slow the checkout"). StoreLab proposes changes, tests each one on simulated shoppers built from your store's data, and gives you a pilot plan with test and control stores.
-Price: PHP 8,000 per store per month on a 12-month contract, minimum 10 stores. Setup is included.
-StoreLab is a new company with no customer results yet.
+The StoreLab 8-Week Store Test: find out in 8 weeks whether a store change sells more, before you roll it out to the whole chain.
+Give us one goal, for example "+10% snack sales without slowing the checkout". StoreLab recommends the change, simulates it on your own store's CCTV and POS data, then runs it in 2–3 test stores against matched control stores. You get the real result in pesos, on one page for your board.
+PHP 75,000 for the 8 weeks. There is no lock-in. If the test stores don't beat the control stores on the agreed goal, you get the full fee back. If you continue, the fee is credited against month-to-month service at PHP 3,000 per store per month.
+Included: a free camera-readiness check before you sign, so you know your existing cameras work. We connect the CCTV and POS ourselves, so there is no work for your IT person. You get a Data Privacy Act pack (impact assessment template, privacy signage and a counsel opinion), plus a report on which endcap slots are worth most for supplier-funded displays.
+StoreLab is a new company with no customer results yet. Only 5 chains can join this first round.
