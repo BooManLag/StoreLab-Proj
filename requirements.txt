@@ -1,0 +1,8 @@
+fastapi==0.142.2
+uvicorn[standard]==0.54.0
+pydantic==2.13.5
+numpy==2.5.3
+scipy==1.18.1
+opencv-python-headless==5.0.0.93
+google-genai==2.28.0
+python-multipart==0.0.32

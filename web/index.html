@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StoreLab</title>
+  <meta name="description" content="StoreLab — A/B testing for physical retail. Understand the store, simulate the change, test what matters.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0b0b'/%3E%3Crect x='7' y='8' width='4' height='16' rx='1' fill='%23fff'/%3E%3Crect x='14' y='8' width='4' height='16' rx='1' fill='%23fff'/%3E%3Crect x='21' y='8' width='4' height='10' rx='1' fill='%232a78d6'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="static/css/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#store" aria-label="StoreLab home">
+      <span class="logo" aria-hidden="true">SL</span><span class="wordmark">StoreLab</span>
+    </a>
+    <nav class="tabs" aria-label="Screens">
+      <a href="#store" data-screen="store">Store</a>
+      <a href="#experiments" data-screen="experiments">Experiments</a>
+      <a href="#pilot" data-screen="pilot">Pilot</a>
+    </nav>
+    <button type="button" class="demo-pill" id="demo-pill" aria-haspopup="dialog"><span class="dot"></span><span>Demo mode</span></button>
+  </header>
+
+  <main>
+    <section id="screen-store" class="screen" aria-labelledby="store-title"></section>
+    <section id="screen-experiments" class="screen" aria-labelledby="exp-title"></section>
+    <section id="screen-pilot" class="screen" aria-labelledby="pilot-title"></section>
+  </main>
+  <footer class="site">
+    Demo Mart BGC is a fictional store. Shoppers are tracked anonymously — no faces, names or cross-visit identity.
+    <button type="button" class="link-btn" data-open-about>About the data & how StoreLab works</button>
+  </footer>
+  <div id="about-root"></div>
+  <div id="tooltip" role="tooltip" hidden></div>
+  <script type="module" src="static/js/app.js"></script>
+</body>
+</html>

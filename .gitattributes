@@ -1,0 +1,6 @@
+# Keep LF everywhere so shell scripts and the Dockerfile work on Linux/macOS and in Cloud Build.
+* text=auto eol=lf
+*.ps1 text eol=crlf
+*.png binary
+*.avi binary
+*.pkl binary
