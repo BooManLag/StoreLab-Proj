@@ -1,0 +1,7 @@
+# StoreLab
+
+- What it is: A/B testing for physical retail — software that turns existing store CCTV and POS data into a behavioural "digital twin" of a store, lets an AI agent (Gemini) design store-layout and merchandising experiments for a stated goal, simulates them on synthetic shoppers, and recommends which one is worth a real-store pilot.
+- Who it is for: physical retailers who change layouts and displays without knowing what will work. First segment is OPEN — the founder asked the board to recommend one of: mid-size Philippine convenience/mini-mart chains (20–500 stores, existing CCTV), JAPAC supermarket/grocery chains, or mall-based specialty/department retailers.
+- What it sells, at what price: a SaaS platform (store analytics + AI experiment design + simulation + pilot planning). Price: NOT DECIDED (open question; per-store subscription and per-pilot fees are both being considered).
+- Where and how: software-first and hardware-agnostic (uses cameras the store already has plus POS exports), deployed on Google Cloud (Cloud Run, Gemini on Vertex AI). JAPAC-first: multilingual goals (EN/JA/KO/ID/FIL), anonymous tracking only (no faces, no identity). Delivered as a web app; the output is a pilot plan (test vs control stores, duration, success metric).
+- Budget and constraints: currently a hackathon entry (AI Builder Cup by Hack2skill, Retail & Commerce theme), submission due 2026-10-18; working MVP exists on synthetic demo data only — no customers, no real store data yet. Funding budget and team size not stated.
