@@ -1,40 +1,49 @@
 import * as THREE from 'three';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import type { JourneyTrack } from '../api/storeTypes';
 
-const HIDDEN_Y = -50; // below the floor, outside the camera's shallow downward view — cheap "hide" without touching material state
+const HIDDEN_SCALE = 0.0001; // Effectively invisible while outside the track's time window, without touching material/visible state per-instance.
+const BOB_FREQ = 7; // steps/sec read as a walk cadence at the default 30x replay speed.
+const BOB_AMOUNT = 0.035;
+const LEAN_MAX = 0.12; // radians of forward lean at full stride — subtle, not a cartoon wobble.
+const MOVE_EPS = 0.01; // m/s² (already scaled by dt) below which a shopper reads as "standing", not walking.
 
-/** A soft circular sprite so shopper dots read as dots, not squares. */
-function dotSprite(): THREE.CanvasTexture {
-  const size = 64;
-  const canvas = document.createElement('canvas');
-  canvas.width = canvas.height = size;
-  const ctx = canvas.getContext('2d')!;
-  const gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
-  gradient.addColorStop(0, 'rgba(255,255,255,1)');
-  gradient.addColorStop(0.8, 'rgba(255,255,255,1)');
-  gradient.addColorStop(1, 'rgba(255,255,255,0)');
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, size, size);
-  const texture = new THREE.CanvasTexture(canvas);
-  texture.needsUpdate = true;
-  return texture;
+/** A low-poly standing figure — capsule body + sphere head, base at y=0. ~1.5 m tall, one merged geometry so each instance is a single draw-call unit. */
+function buildPersonGeometry(): THREE.BufferGeometry {
+  const bodyRadius = 0.16;
+  const bodyLength = 0.9;
+  const body = new THREE.CapsuleGeometry(bodyRadius, bodyLength, 4, 8);
+  const bodyHalf = bodyRadius + bodyLength / 2;
+  body.translate(0, bodyHalf, 0);
+
+  const headRadius = 0.13;
+  const head = new THREE.SphereGeometry(headRadius, 10, 8);
+  head.translate(0, bodyHalf * 2 + headRadius + 0.03, 0);
+
+  return mergeGeometries([body, head], false) ?? body;
+}
+
+/** A small carried basket — only instanced for shoppers who bought, so "who converted" reads at a glance, not just by dot color. */
+function buildBasketGeometry(): THREE.BufferGeometry {
+  return new THREE.BoxGeometry(0.16, 0.12, 0.11);
 }
 
 export interface ShopperParticlesOptions {
   /** Store-meters → world (x, z). Keeps the coordinate convention in one place (StoreScene). */
   toWorldXZ: (x: number, y: number) => [number, number];
-  radius?: number;
   /** Playback speed multiplier — the old app replays at 30x so a 40-minute window is watchable. */
   speed?: number;
   window?: number;
   changed?: Set<JourneyTrack['id']>;
   colors: { buyer: THREE.ColorRepresentation; browser: THREE.ColorRepresentation; changed: THREE.ColorRepresentation };
+  basketColor?: THREE.ColorRepresentation;
   onTick?: (t: number) => void;
 }
 
-/** Animated anonymous shopper dots, replaying real recorded trajectories — not a procedural loop. */
+/** Animated anonymous shoppers, replaying real recorded trajectories as little standing figures — not a procedural loop. */
 export class ShopperParticles {
-  readonly points: THREE.Points;
+  /** Added to / removed from the scene as one unit (person mesh + basket mesh). */
+  readonly object: THREE.Group;
   private tracks: JourneyTrack[];
   private readonly duration: number;
   private readonly speed: number;
@@ -42,10 +51,24 @@ export class ShopperParticles {
   private readonly cursor: number[];
   private t = 0;
   running = false;
-  private readonly positions: Float32Array;
-  private readonly geometry: THREE.BufferGeometry;
-  private readonly material: THREE.PointsMaterial;
-  private readonly sprite: THREE.CanvasTexture;
+
+  private readonly personGeometry: THREE.BufferGeometry;
+  private readonly personMaterial: THREE.MeshStandardMaterial;
+  private readonly personMesh: THREE.InstancedMesh;
+
+  private readonly basketGeometry: THREE.BufferGeometry;
+  private readonly basketMaterial: THREE.MeshStandardMaterial;
+  private readonly basketMesh: THREE.InstancedMesh;
+  /** Index into `tracks` for each basket instance — baskets are a sparse subset (bought-only). */
+  private readonly basketOwner: number[];
+
+  private readonly phase: Float32Array; // per-track bob-cycle offset, desyncs the crowd
+  private readonly scale: Float32Array; // per-track height variance
+  private readonly heading: Float32Array; // last known facing angle, held steady while standing still
+
+  private readonly dummy = new THREE.Object3D();
+  private readonly quat = new THREE.Quaternion();
+  private readonly euler = new THREE.Euler();
 
   constructor(tracks: JourneyTrack[], opts: ShopperParticlesOptions) {
     this.tracks = tracks.filter((t) => t.points.length >= 2);
@@ -55,33 +78,35 @@ export class ShopperParticles {
     this.cursor = this.tracks.map(() => 0);
 
     const n = this.tracks.length;
-    this.positions = new Float32Array(n * 3);
-    const colors = new Float32Array(n * 3);
+    this.phase = new Float32Array(n).map(() => Math.random() * Math.PI * 2);
+    this.scale = new Float32Array(n).map(() => 0.88 + Math.random() * 0.28);
+    this.heading = new Float32Array(n);
+
+    this.personGeometry = buildPersonGeometry();
+    this.personMaterial = new THREE.MeshStandardMaterial({ roughness: 0.65, metalness: 0.05 });
+    this.personMesh = new THREE.InstancedMesh(this.personGeometry, this.personMaterial, Math.max(1, n));
+    this.personMesh.castShadow = true;
+    this.personMesh.receiveShadow = false;
+
     const color = new THREE.Color();
     this.tracks.forEach((t, i) => {
       const kind = opts.changed?.has(t.id) ? 'changed' : t.bought ? 'buyer' : 'browser';
       color.set(opts.colors[kind]);
-      colors[i * 3] = color.r;
-      colors[i * 3 + 1] = color.g;
-      colors[i * 3 + 2] = color.b;
-      this.positions[i * 3 + 1] = HIDDEN_Y;
+      this.personMesh.setColorAt(i, color);
     });
+    if (this.personMesh.instanceColor) this.personMesh.instanceColor.needsUpdate = true;
 
-    this.geometry = new THREE.BufferGeometry();
-    this.geometry.setAttribute('position', new THREE.BufferAttribute(this.positions, 3));
-    this.geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-    this.sprite = dotSprite();
-    this.material = new THREE.PointsMaterial({
-      size: (opts.radius ?? 0.26) * 2,
-      map: this.sprite,
-      vertexColors: true,
-      transparent: true,
-      depthWrite: false,
-      sizeAttenuation: true,
+    this.basketOwner = this.tracks.reduce<number[]>((acc, t, i) => { if (t.bought) acc.push(i); return acc; }, []);
+    this.basketGeometry = buildBasketGeometry();
+    this.basketMaterial = new THREE.MeshStandardMaterial({
+      color: opts.basketColor ?? opts.colors.buyer, roughness: 0.5, metalness: 0.1,
     });
+    this.basketMesh = new THREE.InstancedMesh(this.basketGeometry, this.basketMaterial, Math.max(1, this.basketOwner.length));
+    this.basketMesh.castShadow = true;
 
-    this.points = new THREE.Points(this.geometry, this.material);
+    this.object = new THREE.Group();
+    this.object.add(this.personMesh, this.basketMesh);
+
     this.render(opts.toWorldXZ);
   }
 
@@ -99,10 +124,19 @@ export class ShopperParticles {
 
   private render(toWorldXZ: (x: number, y: number) => [number, number]) {
     const t = this.t;
+    let basketIdx = 0;
     this.tracks.forEach((tr, i) => {
       const p = tr.points;
       if (t < p[0][0] || t > p[p.length - 1][0]) {
-        this.positions[i * 3 + 1] = HIDDEN_Y;
+        this.dummy.position.set(0, -2, 0);
+        this.dummy.quaternion.identity();
+        this.dummy.scale.setScalar(HIDDEN_SCALE);
+        this.dummy.updateMatrix();
+        this.personMesh.setMatrixAt(i, this.dummy.matrix);
+        if (tr.bought) {
+          this.basketMesh.setMatrixAt(basketIdx, this.dummy.matrix);
+          basketIdx++;
+        }
         return;
       }
       let idx = this.cursor[i];
@@ -114,17 +148,40 @@ export class ShopperParticles {
       const x = a[1] + (b[1] - a[1]) * f;
       const y = a[2] + (b[2] - a[2]) * f;
       const [wx, wz] = toWorldXZ(x, y);
-      this.positions[i * 3] = wx;
-      this.positions[i * 3 + 1] = 0.3; // a shopper-height dot, just above fixtures' shadow catch
-      this.positions[i * 3 + 2] = wz;
+
+      const dx = b[1] - a[1], dz = b[2] - a[2];
+      const moving = dx * dx + dz * dz > MOVE_EPS * MOVE_EPS;
+      if (moving) this.heading[i] = Math.atan2(dx, dz);
+
+      const phase = t * BOB_FREQ * 0.2 + this.phase[i];
+      const bobY = moving ? Math.abs(Math.sin(phase)) * BOB_AMOUNT : 0;
+      const lean = moving ? Math.sin(phase * 2) * LEAN_MAX : 0;
+
+      this.euler.set(lean, this.heading[i], 0, 'YXZ');
+      this.quat.setFromEuler(this.euler);
+      this.dummy.position.set(wx, bobY, wz);
+      this.dummy.quaternion.copy(this.quat);
+      this.dummy.scale.setScalar(this.scale[i]);
+      this.dummy.updateMatrix();
+      this.personMesh.setMatrixAt(i, this.dummy.matrix);
+
+      if (tr.bought) {
+        const hipOffset = new THREE.Vector3(0.24, 0.55, 0).applyQuaternion(this.quat);
+        this.dummy.position.set(wx + hipOffset.x, bobY + hipOffset.y, wz + hipOffset.z);
+        this.dummy.updateMatrix();
+        this.basketMesh.setMatrixAt(basketIdx, this.dummy.matrix);
+        basketIdx++;
+      }
     });
-    this.geometry.attributes.position.needsUpdate = true;
+    this.personMesh.instanceMatrix.needsUpdate = true;
+    this.basketMesh.instanceMatrix.needsUpdate = true;
     this.onTick?.(t);
   }
 
   dispose() {
-    this.geometry.dispose();
-    this.material.dispose();
-    this.sprite.dispose();
+    this.personGeometry.dispose();
+    this.personMaterial.dispose();
+    this.basketGeometry.dispose();
+    this.basketMaterial.dispose();
   }
 }

@@ -5,6 +5,7 @@ import type { StoreGeometry, JourneyTrack, Layout } from '../api/storeTypes';
 import { readDesignTokens } from '../theme/tokens';
 import { heatThresholds, buildHeatTexture } from './heatmap';
 import { ShopperParticles } from './particles';
+import { buildFloorTexture, buildPlankTexture, shade } from './textures';
 import { layoutDiff } from '../lib/layoutDiff';
 import './storeScene.css';
 
@@ -82,6 +83,7 @@ export class StoreScene {
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.NoToneMapping; // tokens are exact brand hex — no filmic hue shift
+    this.renderer.setClearColor(this.tokens.color['surface-2']); // a soft backdrop around the footprint, not a black void
     this.renderer.domElement.style.display = 'block';
     container.appendChild(this.renderer.domElement);
 
@@ -131,8 +133,8 @@ export class StoreScene {
   // ---------------------------------------------------------------- scene construction
   private buildLighting() {
     this.scene.add(new THREE.AmbientLight(0xffffff, 0.7));
-    const sun = new THREE.DirectionalLight(0xffffff, 0.8);
     const diag = Math.hypot(this.W, this.H);
+    const sun = new THREE.DirectionalLight(0xffffff, 0.8);
     sun.position.set(diag * 0.3, diag * 0.6, diag * 0.2);
     sun.castShadow = true;
     sun.shadow.mapSize.set(1024, 1024);
@@ -144,12 +146,21 @@ export class StoreScene {
     sun.shadow.camera.far = diag * 2;
     sun.shadow.bias = -0.0005;
     this.scene.add(sun);
+
+    // Soft fill from the opposite side — no shadows of its own, just keeps the new
+    // shelving/cooler geometry from going flat-black on the sun's far side.
+    const fill = new THREE.DirectionalLight(0xffffff, 0.25);
+    fill.position.set(-diag * 0.35, diag * 0.45, -diag * 0.25);
+    this.scene.add(fill);
   }
 
   private buildFloor() {
     const geo = new THREE.PlaneGeometry(this.W, this.H);
     geo.rotateX(-Math.PI / 2);
-    const mat = new THREE.MeshStandardMaterial({ color: this.tokens.color.floor, roughness: 0.95, metalness: 0 });
+    const tileMeters = 0.75;
+    const floorTexture = buildFloorTexture(this.tokens);
+    floorTexture.repeat.set(this.W / tileMeters, this.H / tileMeters);
+    const mat = new THREE.MeshStandardMaterial({ map: floorTexture, roughness: 0.95, metalness: 0 });
     const floor = new THREE.Mesh(geo, mat);
     floor.receiveShadow = true;
     this.scene.add(floor);
@@ -201,6 +212,11 @@ export class StoreScene {
       this.centers.set(key, center);
       this.addLabel(key.toUpperCase(), center[0], center[1], 0.1, 'sl-label area');
     }
+    // A storefront fascia sign centered on the front wall (entrance/exit live at the y-max
+    // edge) — centered in x so it stays well inside the camera frustum instead of clipping
+    // against the container edge the way a corner-anchored sign over the entrance would.
+    const signCenter = this.toWorldXZ(this.W / 2, this.H - 0.25);
+    this.addLabel(s.name, signCenter[0], signCenter[1], 2.1, 'sl-label sign');
   }
 
   /** (Re)builds the aisle meshes for `layout`, tinting any category whose slot differs from the baseline. */
@@ -221,7 +237,7 @@ export class StoreScene {
       const w = a.x1 - a.x0, h = a.y1 - a.y0;
       const geo = new THREE.BoxGeometry(w, 0.04, h);
       const mat = new THREE.MeshStandardMaterial({
-        color: this.tokens.color.zone, roughness: 0.9,
+        color: this.tokens.color.zone, roughness: 0.9, transparent: true, opacity: 0.55,
         emissive: swapped ? this.tokens.color.change : 0x000000, emissiveIntensity: 0.5,
       });
       const mesh = new THREE.Mesh(geo, mat);
@@ -241,24 +257,176 @@ export class StoreScene {
   }
 
   private buildFixturesAndDoors() {
+    const shelfLike = this.store.fixtures.filter((f) => f.kind === 'shelf' || f.kind === 'gondola' || f.kind === 'cooler');
+    if (shelfLike.length) this.buildShelfLikeFixtures(shelfLike);
+
     for (const f of this.store.fixtures) {
-      const w = f.x1 - f.x0, d = f.y1 - f.y0;
-      const isCooler = f.kind === 'cooler';
-      const geo = new THREE.BoxGeometry(w, 0.9, d);
-      const mat = new THREE.MeshStandardMaterial({
-        color: this.tokens.color.fixture, roughness: 0.75,
-        transparent: isCooler, opacity: isCooler ? 0.85 : 1,
-      });
-      const mesh = new THREE.Mesh(geo, mat);
-      const [cx, cz] = this.toWorldXZ((f.x0 + f.x1) / 2, (f.y0 + f.y1) / 2);
-      mesh.position.set(cx, 0.45, cz);
-      mesh.castShadow = true;
-      mesh.receiveShadow = true;
-      this.scene.add(mesh);
+      if (f.kind === 'shelf' || f.kind === 'gondola' || f.kind === 'cooler') continue;
+      if (f.kind === 'counter') this.buildCheckoutCounter(f);
+      else if (f.kind === 'staff') this.buildStaffArea(f);
+      else this.buildGenericFixture(f);
     }
+
     const s = this.store;
     this.flatRect(s.areas.entrance_door.x0, s.areas.entrance_door.y0, s.areas.entrance_door.x1, s.areas.entrance_door.y1, this.tokens.color['ink-muted'], 0.006);
     this.flatRect(s.areas.exit_door.x0, s.areas.exit_door.y0, s.areas.exit_door.x1, s.areas.exit_door.y1, this.tokens.color['ink-muted'], 0.006);
+  }
+
+  /** Wall shelving, gondola runs, and the refrigerated case — real shelf frames + shelf boards + instanced merchandise, not a placeholder box. */
+  private buildShelfLikeFixtures(fixtures: typeof this.store.fixtures) {
+    const tiers = [0.1, 0.62, 1.14];
+    const boardThickness = 0.035;
+    const plank = buildPlankTexture(this.tokens);
+    plank.repeat.set(3, 1);
+    const boardMat = new THREE.MeshStandardMaterial({ map: plank, roughness: 0.8, metalness: 0.05 });
+    const postMat = new THREE.MeshStandardMaterial({ color: this.tokens.color.fixture, roughness: 0.35, metalness: 0.6 });
+    const postGeo = new THREE.CylinderGeometry(0.045, 0.045, 1.5, 8);
+
+    const specs = fixtures.map((f) => {
+      const w = f.x1 - f.x0, d = f.y1 - f.y0;
+      const longZ = d >= w;
+      const run = longZ ? d : w;
+      const shortDim = longZ ? w : d;
+      const perTier = Math.max(2, Math.floor((run - 0.5) / 0.32));
+      return { f, longZ, run, shortDim, perTier };
+    });
+    const totalProducts = specs.reduce((sum, sp) => sum + sp.perTier * tiers.length, 0);
+
+    const productGeo = new THREE.BoxGeometry(0.2, 0.22, 0.16);
+    const productMat = new THREE.MeshStandardMaterial({ roughness: 0.55, metalness: 0.05 });
+    const productMesh = new THREE.InstancedMesh(productGeo, productMat, Math.max(1, totalProducts));
+    productMesh.castShadow = true;
+    productMesh.receiveShadow = true;
+    const palette = [this.tokens.color.insight, this.tokens.color.proof, this.tokens.color.amber, this.tokens.color.red, this.tokens.color.change]
+      .map((c) => new THREE.Color(c));
+    const chillColor = new THREE.Color(this.tokens.color['particle-buyer']);
+
+    const dummy = new THREE.Object3D();
+    let pi = 0;
+    for (const { f, longZ, run, shortDim, perTier } of specs) {
+      const isCooler = f.kind === 'cooler' || f.refrigerated;
+      const [cx, cz] = this.toWorldXZ((f.x0 + f.x1) / 2, (f.y0 + f.y1) / 2);
+      const half = run / 2 - 0.06;
+
+      for (const sign of [-1, 1]) {
+        const post = new THREE.Mesh(postGeo, postMat);
+        post.position.set(longZ ? cx : cx + sign * half, 0.75, longZ ? cz + sign * half : cz);
+        post.castShadow = true;
+        this.scene.add(post);
+      }
+
+      for (const y of tiers) {
+        const boardW = longZ ? shortDim * 0.9 : run - 0.12;
+        const boardD = longZ ? run - 0.12 : shortDim * 0.9;
+        const board = new THREE.Mesh(new THREE.BoxGeometry(boardW, boardThickness, boardD), boardMat);
+        board.position.set(cx, y, cz);
+        board.castShadow = true;
+        board.receiveShadow = true;
+        this.scene.add(board);
+      }
+
+      for (const y of tiers) {
+        for (let i = 0; i < perTier; i++) {
+          const along = ((i + 0.5) / perTier - 0.5) * (run - 0.55);
+          const across = (Math.random() - 0.5) * (shortDim * 0.35);
+          const px = longZ ? cx + across : cx + along;
+          const pz = longZ ? cz + along : cz + across;
+          dummy.position.set(px, y + boardThickness / 2 + 0.11, pz);
+          dummy.rotation.set(0, Math.random() * Math.PI, 0);
+          const s = 0.85 + Math.random() * 0.3;
+          dummy.scale.set(s, s * (0.8 + Math.random() * 0.4), s);
+          dummy.updateMatrix();
+          productMesh.setMatrixAt(pi, dummy.matrix);
+          productMesh.setColorAt(pi, isCooler ? chillColor : palette[pi % palette.length]);
+          pi++;
+        }
+      }
+
+      if (isCooler) this.buildCoolerGlass(f, longZ, run);
+    }
+    productMesh.instanceMatrix.needsUpdate = true;
+    if (productMesh.instanceColor) productMesh.instanceColor.needsUpdate = true;
+    this.scene.add(productMesh);
+  }
+
+  /** A transparent front panel + a soft chill-light strip over a refrigerated fixture, facing whichever side is open to the store. */
+  private buildCoolerGlass(f: StoreGeometry['fixtures'][number], longZ: boolean, run: number) {
+    const nearMin = longZ ? f.x0 <= 0.01 : f.y0 <= 0.01;
+    const nearMax = longZ ? f.x1 >= this.W - 0.01 : f.y1 >= this.H - 0.01;
+    const openSide = nearMax ? -1 : nearMin ? 1 : 0;
+    if (!openSide) return;
+
+    const glassHeight = 1.5;
+    const glassGeo = new THREE.PlaneGeometry(run - 0.1, glassHeight);
+    const glass = new THREE.MeshPhysicalMaterial({
+      color: this.tokens.color['particle-buyer'], roughness: 0.08, metalness: 0,
+      transmission: 1, thickness: 0.05, ior: 1.3, transparent: true, side: THREE.DoubleSide,
+    });
+    const pane = new THREE.Mesh(glassGeo, glass);
+    const faceOffset = (longZ ? (f.x1 - f.x0) : (f.y1 - f.y0)) / 2 + 0.02;
+    const [cx, cz] = this.toWorldXZ((f.x0 + f.x1) / 2, (f.y0 + f.y1) / 2);
+    if (longZ) {
+      pane.position.set(cx + openSide * faceOffset, glassHeight / 2, cz);
+      pane.rotation.y = Math.PI / 2;
+    } else {
+      pane.position.set(cx, glassHeight / 2, cz + openSide * faceOffset);
+    }
+    this.scene.add(pane);
+
+    const glow = new THREE.Mesh(
+      new THREE.BoxGeometry(longZ ? 0.06 : run - 0.1, 0.03, longZ ? run - 0.1 : 0.06),
+      new THREE.MeshStandardMaterial({
+        color: this.tokens.color.insight, emissive: this.tokens.color.insight, emissiveIntensity: 1.1, roughness: 0.4,
+      }),
+    );
+    glow.position.set(pane.position.x, glassHeight + 0.05, pane.position.z);
+    this.scene.add(glow);
+  }
+
+  /** A checkout counter: raised countertop, a POS block, and a darker inset belt stripe. */
+  private buildCheckoutCounter(f: StoreGeometry['fixtures'][number]) {
+    const w = f.x1 - f.x0, d = f.y1 - f.y0;
+    const [cx, cz] = this.toWorldXZ((f.x0 + f.x1) / 2, (f.y0 + f.y1) / 2);
+    const plank = buildPlankTexture(this.tokens);
+    plank.repeat.set(w, 1);
+    const topMat = new THREE.MeshStandardMaterial({ map: plank, roughness: 0.7, metalness: 0.08 });
+    const top = new THREE.Mesh(new THREE.BoxGeometry(w, 0.9, d), topMat);
+    top.position.set(cx, 0.45, cz);
+    top.castShadow = true;
+    top.receiveShadow = true;
+    this.scene.add(top);
+
+    const belt = new THREE.Mesh(
+      new THREE.BoxGeometry(w * 0.55, 0.02, d * 0.5),
+      new THREE.MeshStandardMaterial({ color: shade(this.tokens.color.fixture, -0.3), roughness: 0.9 }),
+    );
+    belt.position.set(cx, 0.91, cz);
+    this.scene.add(belt);
+
+    const pos = new THREE.Mesh(
+      new THREE.BoxGeometry(0.32, 0.22, 0.22),
+      new THREE.MeshStandardMaterial({ color: this.tokens.color.ink, roughness: 0.4, metalness: 0.3 }),
+    );
+    pos.position.set(cx + w / 2 - 0.4, 1.02, cz);
+    pos.castShadow = true;
+    this.scene.add(pos);
+  }
+
+  /** Staff-only back-of-counter floor — a floor marking, not a fixture shoppers would bump into. */
+  private buildStaffArea(f: StoreGeometry['fixtures'][number]) {
+    this.flatRect(f.x0, f.y0, f.x1, f.y1, this.tokens.color.fixture, 0.008, 0.35);
+  }
+
+  private buildGenericFixture(f: StoreGeometry['fixtures'][number]) {
+    const w = f.x1 - f.x0, d = f.y1 - f.y0;
+    const geo = new THREE.BoxGeometry(w, 0.9, d);
+    const mat = new THREE.MeshStandardMaterial({ color: this.tokens.color.fixture, roughness: 0.75 });
+    const mesh = new THREE.Mesh(geo, mat);
+    const [cx, cz] = this.toWorldXZ((f.x0 + f.x1) / 2, (f.y0 + f.y1) / 2);
+    mesh.position.set(cx, 0.45, cz);
+    mesh.castShadow = true;
+    mesh.receiveShadow = true;
+    this.scene.add(mesh);
   }
 
   /** (Re)builds the display-slot meshes for `layout`: added slots are a solid "change" tint, removed ones a faded ghost. */
@@ -376,8 +544,8 @@ export class StoreScene {
       ...opts,
     });
     this.scene.remove(...this.scene.children.filter((c) => c.userData.isParticles));
-    particles.points.userData.isParticles = true;
-    this.scene.add(particles.points);
+    particles.object.userData.isParticles = true;
+    this.scene.add(particles.object);
     this.particlesInstance = particles;
     return particles;
   }
