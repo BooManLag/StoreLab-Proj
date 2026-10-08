@@ -3,7 +3,7 @@ import json
 import pytest
 from fastapi.testclient import TestClient
 
-from storelab.config import DATA_DIR
+from storelab.config import DATA_DIR, WEB_DIR
 from storelab.main import app
 
 
@@ -22,13 +22,32 @@ def test_health_config_store(client):
     assert store["baseline_layout"]["category_slot"]["beverages"] == "aisle_4"
 
 
-def test_web_app_and_modules_served(client):
+def test_web_app_not_built_explains_itself(client):
+    """web/ is frontend/'s build output, not checked in — a fresh checkout has none."""
+    index_path = WEB_DIR / "index.html"
+    assert not index_path.exists(), "this test assumes no build output is present"
     r = client.get("/")
-    assert r.status_code == 200 and "StoreLab" in r.text
-    assert client.head("/").status_code == 200
-    js = client.get("/static/js/app.js")
-    assert js.status_code == 200 and "javascript" in js.headers["content-type"]
-    assert js.headers["cache-control"] == "no-cache"
+    assert r.status_code == 404 and "npm run build" in r.text
+    assert client.head("/").status_code == 404
+
+
+def test_web_app_and_modules_served_once_built(client):
+    """Once frontend/'s build output lands in web/, it's served with the no-cache headers."""
+    index_path = WEB_DIR / "index.html"
+    asset_path = WEB_DIR / "assets" / "index-test.js"
+    asset_path.parent.mkdir(parents=True, exist_ok=True)
+    index_path.write_text("<!doctype html><title>StoreLab</title>")
+    asset_path.write_text("export {};")
+    try:
+        r = client.get("/")
+        assert r.status_code == 200 and "StoreLab" in r.text
+        assert client.head("/").status_code == 200
+        js = client.get("/static/assets/index-test.js")
+        assert js.status_code == 200 and "javascript" in js.headers["content-type"]
+        assert js.headers["cache-control"] == "no-cache"
+    finally:
+        index_path.unlink()
+        asset_path.unlink()
 
 
 def test_analytics_is_valid_json_without_nans(client):

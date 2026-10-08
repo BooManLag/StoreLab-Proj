@@ -3,7 +3,7 @@
 import mimetypes
 
 from fastapi import APIRouter
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, PlainTextResponse, Response
 from fastapi.staticfiles import StaticFiles
 
 from ..config import WEB_DIR
@@ -23,7 +23,17 @@ class RevalidatedStaticFiles(StaticFiles):
 
 
 @router.api_route("/", methods=["GET", "HEAD"], include_in_schema=False)
-def index() -> FileResponse:
-    return FileResponse(
-        str(WEB_DIR / "index.html"), headers={"Cache-Control": "no-cache"}
-    )
+def index() -> Response:
+    # WEB_DIR is frontend/'s build output (frontend/vite.config.ts base: '/static/'); the
+    # Dockerfile always populates it before this module imports. Locally it may not exist at
+    # all (web/ isn't checked in, and `npm run dev` serves the frontend itself via its own
+    # proxy to this backend) — application.py's mkdir keeps the static mount from refusing to
+    # start, and this explains itself instead of a raw 404 when nobody has run `npm run build`.
+    index_path = WEB_DIR / "index.html"
+    if not index_path.exists():
+        return PlainTextResponse(
+            "Frontend not built. Run `npm run build` in frontend/ to serve it from here, "
+            "or run `npm run dev` in frontend/ for local development (it proxies /api to this backend).",
+            status_code=404,
+        )
+    return FileResponse(str(index_path), headers={"Cache-Control": "no-cache"})
