@@ -149,6 +149,10 @@ for Gemini 3 models.
 
 ## API
 
+The backend uses modular FastAPI routers, dependency injection, and bounded response
+caching. See [Backend development](docs/backend.md) for structure, cache settings,
+validation contracts, and scaling limits.
+
 | Method | Path | |
 |---|---|---|
 | GET | `/api/config`, `/api/store`, `/api/analytics`, `/api/journeys/sample` | twin, metrics, heatmap, calibration |
