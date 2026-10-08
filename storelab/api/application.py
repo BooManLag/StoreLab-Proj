@@ -86,6 +86,10 @@ def create_app(settings: BackendSettings | None = None) -> FastAPI:
         exports.router,
     ):
         app.include_router(router)
+    # May not exist locally (web/ isn't checked in; npm run dev serves the frontend itself) —
+    # StaticFiles refuses to even construct over a missing directory, so create it empty rather
+    # than fail app startup. See api/web.py's index() for what a viewer sees without a real build.
+    WEB_DIR.mkdir(parents=True, exist_ok=True)
     app.mount("/static", RevalidatedStaticFiles(directory=str(WEB_DIR)), name="static")
     app.include_router(web_router)
     return app

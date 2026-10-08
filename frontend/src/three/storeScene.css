@@ -1,0 +1,34 @@
+.sl-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.04em;
+  color: var(--color-ink);
+  text-transform: uppercase;
+  pointer-events: none;
+  white-space: nowrap;
+  text-shadow: 0 1px 0 var(--color-paper), 0 -1px 0 var(--color-paper), 1px 0 0 var(--color-paper), -1px 0 0 var(--color-paper);
+}
+.sl-label.area {
+  color: var(--color-ink-muted);
+  font-weight: var(--weight-medium);
+}
+
+.sl-pin {
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-circle);
+  background: var(--color-insight);
+  color: #fff;
+  border: 2px solid var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: var(--weight-bold);
+  cursor: pointer;
+  box-shadow: var(--shadow-overlay);
+  transition: transform var(--duration-micro) var(--ease-standard);
+}
+.sl-pin.friction { background: var(--color-amber); color: var(--color-ink); }
+.sl-pin:hover, .sl-pin:focus-visible { transform: scale(1.12); outline: none; }

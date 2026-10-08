@@ -1,0 +1,184 @@
+/*
+ * Design tokens — preserve mode. Carried over from the existing app's
+ * css/app.css (light + dark, surfaces, floorplan/heatmap colors) plus
+ * founder/brand.md's named brand colors, unified under one naming scheme.
+ * Every color, font, spacing, radius, shadow, and animation in the app
+ * traces back to a token here — see frontend/MASTER.md.
+ *
+ * Color carries meaning, not decoration: blue = insight, green =
+ * recommended/within limits, amber = risk/friction, red = breaks a
+ * constraint, orange = what an experiment changes.
+ */
+:root {
+  color-scheme: light;
+
+  /* Surfaces */
+  --color-paper: #f6f5f1;
+  --color-surface: #fcfcfb;
+  --color-surface-2: #f1f0eb;
+  --color-surface-3: #e7e6e0;
+
+  /* Text / ink */
+  --color-ink: #0b0b0b;
+  --color-ink-muted: #52514e;
+  --color-subtle: #898781;
+  --color-grid: #e1e0d9;
+  --color-border: rgba(11, 11, 11, 0.09);
+  --color-axis: #c3c2b7;
+
+  /* Brand accents — founder/brand.md */
+  --color-insight: #2a78d6;
+  --color-insight-wash: rgba(42, 120, 214, 0.13);
+  --color-insight-text: #1c5cab;
+  --color-proof: #0ca30c;
+  --color-proof-wash: rgba(12, 163, 12, 0.1);
+  --color-proof-text: #006300;
+  --color-amber: #fab219;
+  --color-amber-wash: rgba(250, 178, 25, 0.18);
+  --color-amber-text: #8a5a00;
+  --color-red: #d03b3b;
+  --color-red-wash: rgba(208, 59, 59, 0.1);
+  --color-red-text: #b42f2f;
+  /** What an experiment changes — distinct from the four semantic colors above. */
+  --color-change: #eb6834;
+  --color-change-wash: rgba(235, 104, 52, 0.16);
+
+  /* Store floorplan (Three.js scene reads the .ts mirror of these) */
+  --color-floor: #efeee9;
+  --color-zone: #e2e1db;
+  --color-fixture: #77726b;
+  --color-particle-buyer: #2a78d6;
+  --color-particle-browser: #aeaba3;
+  --color-heat-0: #cde2fb;
+  --color-heat-1: #9ec5f4;
+  --color-heat-2: #6da7ec;
+  --color-heat-3: #3987e5;
+  --color-heat-4: #256abf;
+  --color-heat-5: #184f95;
+  --color-heat-6: #0d366b;
+
+  --shadow-none: none;
+  --shadow-overlay: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.05);
+  --radius-none: 0;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+
+  /* Typography */
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.25rem;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+
+  /* Spacing — 4px base, dashboard-dense rather than airy */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Motion — fast and dry; see MASTER.md's interaction thesis */
+  --duration-micro: 140ms;
+  --duration-meaningful: 320ms;
+  --duration-spin: 0.8s;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --color-paper: #0d0d0d;
+    --color-surface: #1a1a19;
+    --color-surface-2: #222220;
+    --color-surface-3: #2c2c2a;
+    --color-ink: #ffffff;
+    --color-ink-muted: #c3c2b7;
+    --color-subtle: #898781;
+    --color-grid: #2c2c2a;
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-axis: #383835;
+    --color-insight: #3987e5;
+    --color-insight-wash: rgba(57, 135, 229, 0.2);
+    --color-insight-text: #86b6ef;
+    --color-change: #d95926;
+    --color-change-wash: rgba(217, 89, 38, 0.24);
+    --color-proof-wash: rgba(12, 163, 12, 0.16);
+    --color-proof-text: #3ec43e;
+    --color-amber-wash: rgba(250, 178, 25, 0.16);
+    --color-amber-text: #fab219;
+    --color-red-wash: rgba(208, 59, 59, 0.18);
+    --color-red-text: #e66767;
+    --color-floor: #20201e;
+    --color-zone: #2a2a28;
+    --color-fixture: #5d5a55;
+    --color-particle-buyer: #3987e5;
+    --color-particle-browser: #6d6a64;
+    --color-heat-0: #104281;
+    --color-heat-1: #184f95;
+    --color-heat-2: #256abf;
+    --color-heat-3: #2a78d6;
+    --color-heat-4: #5598e7;
+    --color-heat-5: #86b6ef;
+    --color-heat-6: #cde2fb;
+    --shadow-overlay: none;
+  }
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-paper: #0d0d0d;
+  --color-surface: #1a1a19;
+  --color-surface-2: #222220;
+  --color-surface-3: #2c2c2a;
+  --color-ink: #ffffff;
+  --color-ink-muted: #c3c2b7;
+  --color-subtle: #898781;
+  --color-grid: #2c2c2a;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-axis: #383835;
+  --color-insight: #3987e5;
+  --color-insight-wash: rgba(57, 135, 229, 0.2);
+  --color-insight-text: #86b6ef;
+  --color-change: #d95926;
+  --color-change-wash: rgba(217, 89, 38, 0.24);
+  --color-proof-wash: rgba(12, 163, 12, 0.16);
+  --color-proof-text: #3ec43e;
+  --color-amber-wash: rgba(250, 178, 25, 0.16);
+  --color-amber-text: #fab219;
+  --color-red-wash: rgba(208, 59, 59, 0.18);
+  --color-red-text: #e66767;
+  --color-floor: #20201e;
+  --color-zone: #2a2a28;
+  --color-fixture: #5d5a55;
+  --color-particle-buyer: #3987e5;
+  --color-particle-browser: #6d6a64;
+  --color-heat-0: #104281;
+  --color-heat-1: #184f95;
+  --color-heat-2: #256abf;
+  --color-heat-3: #2a78d6;
+  --color-heat-4: #5598e7;
+  --color-heat-5: #86b6ef;
+  --color-heat-6: #cde2fb;
+  --shadow-overlay: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-micro: 0ms;
+    --duration-meaningful: 0ms;
+  }
+}
